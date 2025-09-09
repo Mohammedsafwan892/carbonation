@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carbonation — Custom Moto Parts</title>
+  <meta name="description" content="Street‑legal custom parts and body kits. Order via WhatsApp today." />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg:#0a0a0a;--card:#111;--muted:#bdbdbd;--text:#fff;--brand:#fbde07;--accent:#1f1f1f;--ok:#22c55e;
+      --radius:16px;--shadow:0 6px 24px rgba(0,0,0,.35)
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1180px;margin-inline:auto;padding:24px}
+    header{position:sticky;top:0;z-index:20;background:rgba(10,10,10,.85);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #1e1e1e}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand__logo{width:42px;height:42px;border-radius:10px;background:var(--brand)}
+    .nav__links{display:flex;gap:18px;font-weight:600;text-transform:uppercase;font-size:.82rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;font-weight:700;letter-spacing:.2px;border:1px solid transparent;cursor:pointer;transition:.2s}
+    .btn--brand{background:var(--brand);color:#111}
+    .btn--ghost{border-color:#2b2b2b;background:transparent}
+    .btn:hover{transform:translateY(-1px)}
+    .hero{position:relative;isolation:isolate;background:linear-gradient(180deg,#0a0a0a 0%,#0f0f0f 60%,#111 100%);border-bottom:1px solid #1e1e1e}
+    .hero__wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    .hero h1{font-size:clamp(28px,4.2vw,56px);line-height:1.05;margin:8px 0 12px}
+    .hero p{color:var(--muted);max-width:56ch}
+    .hero__art{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(120deg,#202020,#0f0f0f)}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+    .badge{font-size:.8rem;border:1px solid #2b2b2b;border-radius:999px;padding:6px 10px;color:#ddd}
+
+    .values{background:#0e0e0e;border-top:1px solid #1e1e1e;border-bottom:1px solid #1e1e1e}
+    .values__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .value{background:var(--card);border:1px solid #1c1c1c;border-radius:var(--radius);padding:18px;display:flex;gap:12px;align-items:center}
+    .value svg{width:24px;height:24px}
+    .value h3{margin:0;font-size:1rem}
+    .value p{margin:4px 0 0;color:var(--muted);font-size:.92rem}
+
+    .products{padding:48px 0}
+    .section__head{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}
+    .section__head h2{margin:0;font-size:clamp(22px,2.8vw,32px)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid #1c1c1c;border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+    .card__media{aspect-ratio:4/3;background:#0b0b0b}
+    .card__body{padding:16px;display:flex;flex-direction:column;gap:10px}
+    .price{font-weight:800}
+    .fitment{color:var(--muted);font-size:.9rem}
+    .cta-row{display:flex;gap:10px}
+
+    .about{background:linear-gradient(180deg,#0f0f0f,#0a0a0a);border-top:1px solid #1e1e1e}
+    .about__wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+    .about p{color:var(--muted)}
+
+    footer{border-top:1px solid #1e1e1e;background:#0b0b0b;color:#cfcfcf}
+    .footer__grid{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+    .social{display:flex;gap:10px}
+
+    .whatsapp-fab{position:fixed;right:16px;bottom:16px;background:#25D366;color:#111;border:none;border-radius:999px;padding:14px 18px;font-weight:800;box-shadow:var(--shadow);z-index:50}
+
+    @media (max-width: 920px){
+      .hero__wrap{grid-template-columns:1fr}
+      .values__grid{grid-template-columns:1fr 1fr}
+      .grid{grid-template-columns:1fr}
+      .about__wrap{grid-template-columns:1fr}
+      .nav__links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <!-- CONFIG: replace with your WhatsApp number (international format, no +): -->
+  <script>
+    const WHATSAPP_NUMBER = "+91 99000 03255"; // TODO: change to your business number
+  </script>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <strong>Carbonation</strong>
+      </a>
+      <nav class="nav__links">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn--brand" id="whatsappTopCta" href="#">Order on WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__wrap">
+        <div>
+          <div class="badges">
+            <span class="badge">Street‑legal</span>
+            <span class="badge">Ships to 24+ countries</span>
+            <span class="badge">25,000+ riders</span>
+          </div>
+          <h1>Custom body kits & parts for riders who want more.</h1>
+          <p>Precision‑made, road‑ready upgrades for your motorcycle. Start with our best‑sellers below and complete your order on WhatsApp in minutes.</p>
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn--brand" id="whatsappHeroCta" href="#">Order on WhatsApp</a>
+            <a class="btn btn--ghost" href="#products">Browse products</a>
+          </div>
+        </div>
+        <div class="hero__art">
+          <!-- Replace src with your image (WebP for speed) -->
+          <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=1200&auto=format&fit=crop" alt="Custom motorcycle parts" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Value props -->
+    <section class="values">
+      <div class="container values__grid">
+        <article class="value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5" stroke-width="2"/></svg>
+          <div>
+            <h3>Street‑Legal</h3>
+            <p>Designed to meet on‑road standards.</p>
+          </div>
+        </article>
+        <article class="value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7h18M3 12h18M3 17h18" stroke-width="2"/></svg>
+          <div>
+            <h3>Easy Fitment</h3>
+            <p>Bolt‑on kits, no guesswork.</p>
+          </div>
+        </article>
+        <article class="value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 1v22M1 12h22" stroke-width="2"/></svg>
+          <div>
+            <h3>Global Shipping</h3>
+            <p>Delivered to 24+ countries.</p>
+          </div>
+        </article>
+        <article class="value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 17l-5 3 1-5-4-4 5-1 3-5 3 5 5 1-4 4 1 5z" stroke-width="2"/></svg>
+          <div>
+            <h3>Trusted by Riders</h3>
+            <p>25k+ customers and counting.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Featured products -->
+    <section id="products" class="products container">
+      <div class="section__head">
+        <h2>Featured products</h2>
+        <a class="btn btn--ghost" href="#">View all</a>
+      </div>
+      <div class="grid" id="productGrid">
+        <!-- CARD 1 -->
+        <article class="card" data-title="Knuckle guards - Triumph Scrambler 400X" data-price="₹2,499" data-fitment="Royal Enfield Himalayan 450" data-image="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop">
+          <div class="card__media"><img alt="Knuckle guards - Triumph Scrambler 400X" /></div>
+          <div class="card__body">
+            <h3>Knuckle guards - Triumph Scrambler 400X</h3>
+            <div class="price">₹2,499</div>
+            <div class="fitment">Fitment: Royal Enfield Himalayan 450</div>
+            <div class="cta-row">
+              <a class="btn btn--brand orderBtn" href="#">Order on WhatsApp</a>
+              <a class="btn btn--ghost" href="product.html?slug=himalayan-450-visor">Details</a>
+            </div>
+          </div>
+        </article>
+        <!-- CARD 2 -->
+        <!-- <article class="card" data-title="KTM Duke Tail Tidy" data-price="₹3,199" data-fitment="KTM Duke (all)" data-image="https://images.unsplash.com/photo-1517867065801-1f6a3d7082fb?q=80&w=1200&auto=format&fit=crop"> -->
+          <!-- <div class="card__media"><img alt="KTM Duke Tail Tidy" /></div> -->
+          <!-- <div class="card__body"> -->
+            <!-- <h3>KTM Duke Tail Tidy</h3> -->
+            <!-- <div class="price">₹3,199</div> -->
+            <!-- <div class="fitment">Fitment: KTM Duke (all)</div> -->
+            <!-- <div class="cta-row"> -->
+              <!-- <a class="btn btn--brand orderBtn" href="#">Order on WhatsApp</a> -->
+              <!-- <a class="btn btn--ghost" href="product.html?slug=ktm-duke-tail-tidy">Details</a> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </article> -->
+        <!-- CARD 3 -->
+        <!-- <article class="card" data-title="Yamaha MT‑15 Belly Pan" data-price="₹2,899" data-fitment="Yamaha MT‑15" data-image="https://images.unsplash.com/photo-1516261195633-4405e3d57b6c?q=80&w=1200&auto=format&fit=crop"> -->
+          <!-- <div class="card__media"><img alt="Yamaha MT‑15 Belly Pan" /></div> -->
+          <!-- <div class="card__body"> -->
+            <!-- <h3>Yamaha MT‑15 Belly Pan</h3> -->
+            <!-- <div class="price">₹2,899</div> -->
+            <!-- <div class="fitment">Fitment: Yamaha MT‑15</div> -->
+            <!-- <div class="cta-row"> -->
+              <!-- <a class="btn btn--brand orderBtn" href="#">Order on WhatsApp</a> -->
+              <!-- <a class="btn btn--ghost" href="product.html?slug=yamaha-mt15-belly-pan">Details</a> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </article> -->
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="container about__wrap">
+        <div>
+          <h2>Built by riders, for riders.</h2>
+          <p>We design and manufacture bolt‑on, street‑legal parts so you can make your motorcycle a reflection of yourself. Every piece is tested for fit, finish, and durability before it ships.</p>
+          <div style="margin-top:12px">
+            <a class="btn btn--brand" id="whatsappAboutCta" href="#">Chat on WhatsApp</a>
+          </div>
+        </div>
+        <div class="hero__art">
+          <img src="https://images.unsplash.com/photo-1520975922284-7b683dc234a9?q=80&w=1200&auto=format&fit=crop" alt="Workshop" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container footer__grid">
+      <p>© <span id="year"></span> Carbonation Design. All rights reserved.</p>
+      <div class="social">
+        <a href="https://www.instagram.com/" aria-label="Instagram">IG</a>
+        <a href="https://www.youtube.com/" aria-label="YouTube">YT</a>
+        <a href="https://wa.me/" aria-label="WhatsApp">WA</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp CTA -->
+  <a class="whatsapp-fab" id="whatsappFab" href="#">WhatsApp Order</a>
+
+  <script>
+    // util to make a WhatsApp link
+    function waLink(text){
+      const msg = encodeURIComponent(text || "Hi! I'd like to place an order.");
+      return https://wa.me/${WHATSAPP_NUMBER}?text=${msg};
+    }
+
+    // top / hero / about / fab buttons
+    document.getElementById('whatsappTopCta').href = waLink("Hi! I'd like to place an order.");
+    document.getElementById('whatsappHeroCta').href = waLink("Hi! I'd like to place an order.");
+    document.getElementById('whatsappAboutCta').href = waLink("Hi! I'd like to ask about parts.");
+    document.getElementById('whatsappFab').href = waLink("Hi! I'd like to place an order.");
+
+    // hydrate product cards (images + CTA with prefilled product name)
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const img = card.querySelector('img');
+      img.src = card.dataset.image;
+      const title = card.dataset.title;
+      const btn = card.querySelector('.orderBtn');
+      btn.href = waLink(Hi! I want to order: ${title});
+    });
+
+    // current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
